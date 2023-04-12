@@ -131,28 +131,28 @@ const runAction = async (octokit, context, parameters) => {
     }
 
     // Assign PR reviewers
-    if (!isIssue) {
-        // Remove author from reviewers
-        const newReviewers = [...newAssignees];
-        const foundIndex = newReviewers.indexOf(author);
-        if (foundIndex !== -1) {
-            newReviewers.splice(foundIndex, 1);
-        }
+//     if (!isIssue) {
+//         // Remove author from reviewers
+//         const newReviewers = [...newAssignees];
+//         const foundIndex = newReviewers.indexOf(author);
+//         if (foundIndex !== -1) {
+//             newReviewers.splice(foundIndex, 1);
+//         }
 
-        if (newReviewers.length > 0) {
-            console.log(
-                `Setting reviewers for PR ${issueNumber}: ${JSON.stringify(
-                    newReviewers
-                )}`
-            );
-            await octokit.rest.pulls.requestReviewers({
-                owner,
-                repo,
-                pull_number: issueNumber,
-                reviewers: newReviewers
-            });
-        }
-    }
+//         if (newReviewers.length > 0) {
+//             console.log(
+//                 `Setting reviewers for PR ${issueNumber}: ${JSON.stringify(
+//                     newReviewers
+//                 )}`
+//             );
+//             await octokit.rest.pulls.requestReviewers({
+//                 owner,
+//                 repo,
+//                 pull_number: issueNumber,
+//                 reviewers: newReviewers
+//             });
+//         }
+//     }
 };
 
 module.exports = {
